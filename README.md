@@ -7,5 +7,5 @@ This a parser for getting data from [StockQ](http://www.stockq.org/market/commod
 Install package:
 
 ```
-  pip install -r requirement.txt
+  pip3 install -r requirement.txt
 ```
