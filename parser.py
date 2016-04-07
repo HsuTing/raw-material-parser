@@ -6,6 +6,7 @@ req.encoding = 'utf-8'
 
 html = BeautifulSoup(req.text, 'html.parser')
 table = html.find("table", {"class": "marketdatatable"})
+output = []
 for item in table.find_all("tr"):
     if item.get('class') == None:
         continue
@@ -28,3 +29,16 @@ for item in table.find_all("tr"):
         elif index == 4:
             time = value.text
         index += 1
+
+    check_ratio = float(ratio.replace('%', ''))
+    if check_ratio < 1 and check_ratio > -1:
+        continue
+    output_item = {
+        'name': name,
+        'price': price,
+        'ratio': ratio,
+        'time': time
+    }
+    output.append(output_item)
+
+print(output)
