@@ -41,4 +41,6 @@ for item in table.find_all("tr"):
     }
     output.append(output_item)
 
-print(output)
+payload = {'robot_id': '108143422899450', 'lng': '120.218431', 'lat': '22.993965', 'content': output}
+req = requests.post("http://52.192.20.250/chat/create/robot/", data=payload)
+print(req.status_code)
